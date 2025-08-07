@@ -1,1 +1,575 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ishika❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(45deg, #00FFFF, #C0C0C0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 40px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px #000000;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+        
+        .photo-frame:hover, .photo-frame:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px #00FFFF;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-frame:hover img, .photo-frame:active img {
+            transform: scale(1.1);
+        }
+        
+        .letter {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 0 30px rgba(51, 51, 255, 0.3);
+            position: relative;
+            border: 1px solid #333;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: all 0.5s ease;
+        }
+        
+        .letter:hover, .letter:active {
+            transform: perspective(1000px) rotateY(10deg);
+            box-shadow: 0 0 50px #00FFFF;
+        }
+        
+        .letter h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #1E90FF;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .letter p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #00FFFF;
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        .music-player {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(51, 51, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover, .music-player:active {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.5);
+        }
+        
+        .music-player h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff00cc;
+        }
+        
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .music-controls button {
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            border: none;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
+        }
+        
+        .music-controls button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #000000;
+        }
+        
+        .music-controls button:active {
+            transform: scale(0.95);
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .volume-control input {
+            width: 150px;
+            cursor: pointer;
+        }
+        
+        .song-info {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .emojis {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0;
+            animation: fall 10s linear infinite;
+            user-select: none;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #999999;
+            opacity: 0;
+            z-index: 999;
+            animation: confetti 5s ease-in-out infinite;
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        
+        .gallery-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover, .gallery-item:active {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(135,206,235);
+            z-index: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s ease;
+        }
+        
+        .countdown {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 1.2rem;
+            color: #87CEEB;
+        }
+        
+        .countdown span {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        /* Touch glow effect */
+        .glow-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glow-effect:active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            opacity: 0;
+            animation: glow-pulse 0.5s ease-out;
+            pointer-events: none;
+        }
+        
+        @keyframes glow-pulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .letter h2 {
+                font-size: 2rem;
+            }
+            
+            .letter p {
+                font-size: 1rem;
+            }
+            
+            .gallery-item {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="emojis" id="emojis"></div>
+    <div class="container">
+        <header>
+            <h1 class="hidden">Happy Birthday<br>Ishika</h1>
+            
+            
+           <div class="photo-frame glow-effect" style="text-align: center;">
+  <img 
+    src="https://raw.githubusercontent.com/rexuraa/ish/main/IMG_20250807_155709.jpg" 
+    alt="Ishika" 
+    style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 20px #00ffff; display: inline-block;">
+</div>
+        </header>
+        
+        <div class="letter hidden glow-effect">
+    <h2>For Someone Amazing 🎉</h2>
+    <p>Happy Birthday, Ishika! Aajker din ta tomar jonne really special  ar ami chaitesi tomar jonno ekta chhoto surprise create korte. 🙂</p>
+    <p>Tumi always ekta positive vibe niye aso, and that's something I genuinely appreciate. Tomar moto ekjon friend thaka honestly boro ekta blessing.</p>
+    <p>Jibone joto dream ache, sob fulfill hok not just today, but always. You deserve every bit of happiness this world has to offer.</p>
+    <p>Ekta chhoto wish: jeno porer bochhor ektu aro bright hoy tomar jonne, aro fun hoy, aro memory full hoy.</p>
+    <div class="signature">Best wishes,<br>Rajin</div>
+</div>
+        
+        <div class="gallery hidden">
+    <!-- Custom GitHub images -->
+    <div class="gallery-item glow-effect">
+        <img src="https://raw.githubusercontent.com/rexuraa/aesthetic/main/%F0%9F%A4%8D.jpeg" alt="Memories">
+    </div>
+    <div class="gallery-item glow-effect">
+        <img src="https://raw.githubusercontent.com/rexuraa/aesthetic/main/347208ef-20c3-43f4-9b10-170073af8b05.jpeg" alt="Memories">
+    </div>
+    <div class="gallery-item glow-effect">
+        <img src="https://raw.githubusercontent.com/rexuraa/aesthetic/main/44e8471a-7180-4c1b-bb25-7acbbf695135.jpeg" alt="Memories">
+    </div>
+    <div class="gallery-item glow-effect">
+        <img src="https://raw.githubusercontent.com/rexuraa/aesthetic/main/08330bf2-935b-49db-ab9b-09c2f3a8be69.jpeg" alt="Memories">
+    </div>
+</div>
+        
+        <div class="music-player hidden glow-effect">
+            <h3>Our Special Song</h3>
+            <div class="music-controls">
+                <button id="playPauseBtn" class="glow-effect">▶️</button>
+                <button id="stopBtn" class="glow-effect">⏹</button>
+            </div>
+            <div class="volume-control">
+                <span>🔈</span>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+                <span>🔊</span>
+            </div>
+            <div class="song-info" id="songInfo">Alex Warren - Ordinary</div>
+<audio id="birthdaySong" auto loop>
+    <source src="https://raw.githubusercontent.com/rexuraa/Ordinary-Music/main/Alex%20Warren%20-%20Ordinary%20(Official%20Video).m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+</audio>
+    </div>
+    
+    <footer class="hidden">
+        Made with by REXURAA - Happy Birthday Ishika
+    </footer>
+    
+    <script>
+        // Emoji options
+        const emojis = ['🌸', '🖤', '✨', '🧸', '🎂', '🍫', '😊', '🙈', '😁', '🤍'];
+        
+        // Create floating emojis
+        function createEmojis() {
+            const emojisContainer = document.getElementById('emojis');
+            for (let i = 0; i < 50; i++) {
+                const emoji = document.createElement('div');
+                emoji.classList.add('emoji');
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                emoji.style.animationDelay = Math.random() * 5 + 's';
+                emoji.style.transform = 'scale(' + (Math.random() * 0.5 + 0.5) + ')';
+                emoji.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                emojisContainer.appendChild(emoji);
+            }
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                document.body.appendChild(confetti);
+            }
+        }
+        
+        // Music player functionality
+        const birthdaySong = document.getElementById('birthdaySong');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        
+        // Set initial volume
+        birthdaySong.volume = volumeSlider.value;
+        
+        // Update volume when slider changes
+        volumeSlider.addEventListener('input', () => {
+            birthdaySong.volume = volumeSlider.value;
+        });
+        
+        // Play/Pause toggle
+        playPauseBtn.addEventListener('click', () => {
+            if (birthdaySong.paused) {
+                birthdaySong.play();
+                playPauseBtn.textContent = '⏸';
+                createConfetti();
+            } else {
+                birthdaySong.pause();
+                playPauseBtn.textContent = '▶️';
+            }
+        });
+        
+        // Stop button
+        stopBtn.addEventListener('click', () => {
+            birthdaySong.pause();
+            birthdaySong.currentTime = 0;
+            playPauseBtn.textContent = '▶️';
+        });
+        
+        // Update button when song ends
+        birthdaySong.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶️';
+        });
+        
+        // Calculate years together (replace with your anniversary date)
+        function calculateYearsTogether() {
+            const anniversaryDate = new Date('2020-01-01'); // Replace with your actual anniversary date
+            const currentDate = new Date();
+            const diffTime = currentDate - anniversaryDate;
+            const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
+            document.getElementById('yearsTogether').textContent = diffYears;
+        }
+        
+        // Scroll animations
+        const hiddenElements = document.querySelectorAll('.hidden');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        hiddenElements.forEach(el => observer.observe(el));
+        
+        // Add glow effect on touch/click
+        function setupGlowEffects() {
+            const glowElements = document.querySelectorAll('.glow-effect');
+            
+            glowElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.classList.add('active-glow');
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.classList.remove('active-glow');
+                });
+                
+                element.addEventListener('click', function() {
+                    this.classList.add('active-glow');
+                    setTimeout(() => {
+                        this.classList.remove('active-glow');
+                    }, 500);
+                });
+            });
+        }
+        
+        // Initialize
+        window.onload = function() {
+            createEmojis();
+            calculateYearsTogether();
+            setupGlowEffects();
+            
+            // Typewriter effect for title
+            const title = document.querySelector('h1');
+            const text = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 100);
+            
+            // Add click effect to photos in gallery
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('expanded');
+                });
+            });
+        };
+    </script>
+</body>
+</html>
